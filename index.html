@@ -11,6 +11,8 @@
 
 <style>
 
+/* GLOBAL */
+
 *{
 margin:0;
 padding:0;
@@ -22,13 +24,13 @@ scroll-behavior:smooth;
 /* ANIMATED BACKGROUND */
 
 body{
-background:linear-gradient(-45deg,#ffffff,#f3f4f6,#e5e7eb,#ffffff);
+background:linear-gradient(-45deg,#ffffff,#e0f2fe,#fce7f3,#e9d5ff);
 background-size:400% 400%;
-animation:bg 10s ease infinite;
+animation:bgmove 12s ease infinite;
 color:#333;
 }
 
-@keyframes bg{
+@keyframes bgmove{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
@@ -39,16 +41,18 @@ color:#333;
 nav{
 display:flex;
 justify-content:space-between;
+align-items:center;
 padding:20px 10%;
 background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
 position:sticky;
 top:0;
+z-index:1000;
 }
 
 .logo{
-font-weight:700;
 font-size:22px;
+font-weight:700;
 }
 
 nav a{
@@ -61,7 +65,7 @@ font-weight:500;
 /* HERO */
 
 .hero{
-height:80vh;
+height:85vh;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -70,7 +74,7 @@ padding:20px;
 }
 
 .hero h1{
-font-size:48px;
+font-size:50px;
 }
 
 .hero p{
@@ -84,10 +88,10 @@ margin-right:auto;
 .btn{
 display:inline-block;
 margin-top:25px;
-padding:12px 25px;
+padding:12px 30px;
 background:#2563eb;
 color:white;
-border-radius:25px;
+border-radius:30px;
 text-decoration:none;
 }
 
@@ -113,11 +117,11 @@ gap:30px;
 .card{
 background:white;
 padding:25px;
-border-radius:10px;
+border-radius:12px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* COUNTERS */
+/* COUNTER */
 
 .counter{
 font-size:40px;
@@ -148,7 +152,7 @@ padding-right:10px;
 line-height:25px;
 }
 
-/* FORM */
+/* FORMS */
 
 form{
 max-width:500px;
@@ -187,6 +191,20 @@ border-radius:10px;
 font-style:italic;
 }
 
+/* FLOAT BUTTON */
+
+.float-donate{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#2563eb;
+color:white;
+padding:14px 25px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+}
+
 /* FOOTER */
 
 footer{
@@ -210,6 +228,7 @@ color:white;
 <a href="#about">About</a>
 <a href="#programs">Programs</a>
 <a href="#impact">Impact</a>
+<a href="#donate">Donate</a>
 <a href="#volunteer">Volunteer</a>
 </div>
 
@@ -224,11 +243,11 @@ color:white;
 <h1>Hopanova Foundation</h1>
 
 <p>
-Empowering communities through education, healthcare and compassion.
-Together we can create lasting change.
+Empowering communities through education, healthcare, and compassion.
+Together we can create a better future.
 </p>
 
-<a class="btn" href="#volunteer">Join Us</a>
+<a class="btn" href="#donate">Donate Now</a>
 
 </div>
 
@@ -242,7 +261,9 @@ Together we can create lasting change.
 
 <p style="text-align:center;max-width:700px;margin:auto">
 
-Hopanova Foundation works to support underprivileged communities by providing access to education, food, and healthcare. Our mission is to empower individuals and build sustainable communities through compassion and collective effort.
+Hopanova Foundation works to uplift underprivileged communities by providing
+education, food assistance, and healthcare support. Our mission is to empower
+people and create sustainable change.
 
 </p>
 
@@ -258,24 +279,24 @@ Hopanova Foundation works to support underprivileged communities by providing ac
 
 <div class="card">
 <h3>Education Support</h3>
-<p>Scholarships and school supplies for children.</p>
+<p>Scholarships and learning materials for children.</p>
 </div>
 
 <div class="card">
 <h3>Food Programs</h3>
-<p>Nutritious meals for families facing food insecurity.</p>
+<p>Nutritious meals for families in need.</p>
 </div>
 
 <div class="card">
 <h3>Healthcare Camps</h3>
-<p>Medical assistance for underserved communities.</p>
+<p>Medical assistance and health awareness.</p>
 </div>
 
 </div>
 
 </section>
 
-<!-- IMPACT COUNTERS -->
+<!-- IMPACT -->
 
 <section id="impact">
 
@@ -306,37 +327,49 @@ Hopanova Foundation works to support underprivileged communities by providing ac
 
 <section>
 
-<h2>Impact Statistics</h2>
+<h2>Program Statistics</h2>
 
 <div class="stat">
-
 <p>Education Programs</p>
-
-<div class="progress">
-<div class="bar" style="width:80%">80%</div>
-</div>
-
+<div class="progress"><div class="bar" style="width:80%">80%</div></div>
 </div>
 
 <div class="stat">
-
-<p>Food Programs</p>
-
-<div class="progress">
-<div class="bar" style="width:70%">70%</div>
-</div>
-
+<p>Food Support</p>
+<div class="progress"><div class="bar" style="width:70%">70%</div></div>
 </div>
 
 <div class="stat">
-
-<p>Healthcare Support</p>
-
-<div class="progress">
-<div class="bar" style="width:60%">60%</div>
+<p>Healthcare</p>
+<div class="progress"><div class="bar" style="width:60%">60%</div></div>
 </div>
 
-</div>
+</section>
+
+<!-- DONOR FORM -->
+
+<section id="donate">
+
+<h2>Donate to Support Our Mission</h2>
+
+<form>
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="number" placeholder="Donation Amount (₹)" required>
+
+<select>
+<option>Select Donation Type</option>
+<option>Education</option>
+<option>Food</option>
+<option>Healthcare</option>
+</select>
+
+<button type="submit">Donate Now</button>
+
+</form>
 
 </section>
 
@@ -396,11 +429,11 @@ Hopanova Foundation works to support underprivileged communities by providing ac
 <div class="grid">
 
 <div class="card testimonial">
-“HopaNova helped our village children continue their education.”
+“HopaNova helped many children continue their education.”
 </div>
 
 <div class="card testimonial">
-“Volunteering here changed my life.”
+“Volunteering here gave me purpose and helped the community.”
 </div>
 
 </div>
@@ -414,6 +447,8 @@ Hopanova Foundation works to support underprivileged communities by providing ac
 
 </footer>
 
+<a href="#donate" class="float-donate">Donate</a>
+
 <script>
 
 /* COUNTER ANIMATION */
@@ -426,7 +461,6 @@ const update=()=>{
 
 const target=+counter.getAttribute("data-target");
 const c=+counter.innerText;
-
 const increment=target/200;
 
 if(c<target){
@@ -436,11 +470,8 @@ counter.innerText=Math.ceil(c+increment);
 setTimeout(update,10);
 
 }
-
 else{
-
 counter.innerText=target;
-
 }
 
 };
